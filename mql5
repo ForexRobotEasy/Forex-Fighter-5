@@ -1,0 +1,68 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                                   Forex Fighter 5|
+//|                                 Developer: Forex Robot Easy Team |
+//|                                      Developer's Site: forexroboteasy.com |
+//+------------------------------------------------------------------+
+//| Terms of Reference for Writing Code for Forex Fighter 5          |
+//|                                                                  |
+//| This code is developed to trade seven currency pairs: EURJPY,     |
+//| GBPCHF, EURGBP, USDCAD, AUDNZD, USDJPY, and AUDCAD.               |
+//| It utilizes built-in indicators to identify repetitive patterns   |
+//| and convert them into profitable trading opportunities using AI.  |
+//| Decision-making is controlled by two Neural Networks, which must |
+//| agree on a trade's viability based on a pattern repetition       |
+//| probability of at least 85%. Trades are initiated when this      |
+//| threshold is met. Code is optimized for continuous scanning      |
+//| of the Forex market.                                              |
+//+------------------------------------------------------------------+
+
+// Currency pairs to trade
+string[] currencyPairs = {'EURJPY', 'GBPCHF', 'EURGBP', 'USDCAD', 'AUDNZD', 'USDJPY', 'AUDCAD'};
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                        Trading Robot Code                         |
+//|                                                                  |
+//+------------------------------------------------------------------+
+
+void OnTick()
+{
+    // Scan the Forex market continuously
+    for(int i = 0; i < ArraySize(currencyPairs); i++)
+    {
+        // Check if pattern repetition probability is above 85%
+        if(IdentifyPatternRepetition(currencyPairs[i]) > 85)
+        {
+            // Make decision using Neural Networks
+            if(DecisionByNeuralNetworks())
+            {
+                // Initiate a trade
+                OpenTrade(currencyPairs[i]);
+            }
+        }
+    }
+}
+
+// Function to identify pattern repetition probability
+int IdentifyPatternRepetition(string currencyPair)
+{
+    // Use built-in indicators to identify repetitive patterns
+    int patternRepetition = 90; // Placeholder value for pattern repetition probability
+    return patternRepetition;
+}
+
+// Function to make decision using Neural Networks
+bool DecisionByNeuralNetworks()
+{
+    // Make decision based on Neural Networks' agreement
+    bool decision = true; // Placeholder value for decision
+    return decision;
+}
+
+// Function to open a trade
+void OpenTrade(string currencyPair)
+{
+    // Code to open a trade
+    // ...
+}
